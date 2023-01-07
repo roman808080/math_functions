@@ -43,23 +43,21 @@ def print_table(list_of_elements, func_1, func_2, decimal_places=3):
 
     print(delimiter)
 
-two_x_exp = combine_funcs(lambda x: 2*x,
-                          lambda x: 2**x,
-                          function_name='two_x_exp')
 
-squared_exp = combine_funcs(lambda x: 2**x,
-                            lambda x: x**2,
-                            function_name='squared_exp')
+def main():
+    two_x_exp = combine_funcs(lambda x: 2*x,
+                            lambda x: 2**x,
+                            function_name='two_x_exp')
+
+    squared_exp = combine_funcs(lambda x: 2**x,
+                                lambda x: x**2,
+                                function_name='squared_exp')
 
 
-list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
+    list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
 
-print_table(list_of_elements, two_x_exp, squared_exp)
+    print_table(list_of_elements, two_x_exp, squared_exp)
 
-# print('two_x_exp')
-# print_results_for_function(list_of_elements, two_x_exp)
-# print()
 
-# print('squared_exp')
-# print_results_for_function(list_of_elements, squared_exp)
-# print()
+if __name__ == '__main__':
+    main()
