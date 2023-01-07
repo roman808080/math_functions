@@ -2,9 +2,12 @@
 import math
 
 
-def combine_funcs(func_1, func_2):
+def combine_funcs(func_1, func_2, function_name=None):
     def inner(*args, **kargs):
         return func_2(func_1(*args, **kargs))
+
+    if function_name is not None:
+        inner.__name__ = function_name
 
     return inner
 
@@ -24,18 +27,29 @@ def print_results_for_function(elements, func):
 
 
 def print_table(list_of_elements, func_1, func_2, decimal_places=3):
+    top = f"| {'x':>15} | {func_1.__name__:>15} | {func_2.__name__:>15} |"
+    delimiter = len(top) * '-'
+
+    print(top)
+    print(delimiter)
+
     for element in list_of_elements:
+        x_str = format(element, f'.{decimal_places}f')
         result_1 = format(func_1(element), f'.{decimal_places}f')
         result_2 = format(func_2(element), f'.{decimal_places}f')
 
-        row = f'| {result_1:>10} \t | {result_2:>10} \t|'
+        row = f'| {x_str:>15} | {result_1:>15} | {result_2:>15} |'
         print(row)
 
+    print(delimiter)
+
 two_x_exp = combine_funcs(lambda x: 2*x,
-                          lambda x: 2**x)
+                          lambda x: 2**x,
+                          function_name='two_x_exp')
 
 squared_exp = combine_funcs(lambda x: 2**x,
-                            lambda x: x**2)
+                            lambda x: x**2,
+                            function_name='squared_exp')
 
 
 list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
