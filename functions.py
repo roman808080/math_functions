@@ -29,9 +29,13 @@ two_x_exp = combine_funcs(lambda x: 2*x,
 squared_exp = combine_funcs(lambda x: 2**x,
                             lambda x: x**2)
 
-x = 4
+
+list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
+
 print('two_x_exp')
-print_results_for_function(two_x_exp, [x])
+print_results_for_function(two_x_exp, list_of_elements)
+print()
 
 print('squared_exp')
-print_results_for_function(squared_exp, [x])
+print_results_for_function(squared_exp, list_of_elements)
+print()
