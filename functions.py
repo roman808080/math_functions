@@ -23,9 +23,12 @@ def print_results_for_function(elements, func):
     return for_every_element(elements, print_result, func)
 
 
-def print_table(list_of_elements, func_1, func_2):
+def print_table(list_of_elements, func_1, func_2, decimal_places=3):
     for element in list_of_elements:
-        row = f'| {func_1(element):>10} \t | {func_2(element):>10} \t|'
+        result_1 = format(func_1(element), f'.{decimal_places}f')
+        result_2 = format(func_2(element), f'.{decimal_places}f')
+
+        row = f'| {result_1:>10} \t | {result_2:>10} \t|'
         print(row)
 
 two_x_exp = combine_funcs(lambda x: 2*x,
