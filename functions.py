@@ -23,6 +23,11 @@ def print_results_for_function(elements, func):
     return for_every_element(elements, print_result, func)
 
 
+def print_table(list_of_elements, func_1, func_2):
+    for element in list_of_elements:
+        row = f'| {func_1(element):>10} \t | {func_2(element):>10} \t|'
+        print(row)
+
 two_x_exp = combine_funcs(lambda x: 2*x,
                           lambda x: 2**x)
 
@@ -32,10 +37,12 @@ squared_exp = combine_funcs(lambda x: 2**x,
 
 list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
 
-print('two_x_exp')
-print_results_for_function(list_of_elements, two_x_exp)
-print()
+print_table(list_of_elements, two_x_exp, squared_exp)
 
-print('squared_exp')
-print_results_for_function(list_of_elements, squared_exp)
-print()
+# print('two_x_exp')
+# print_results_for_function(list_of_elements, two_x_exp)
+# print()
+
+# print('squared_exp')
+# print_results_for_function(list_of_elements, squared_exp)
+# print()
