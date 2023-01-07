@@ -19,7 +19,7 @@ def print_result(x, func):
     print(x, '->', func(x))
 
 
-def print_results_for_function(func, elements):
+def print_results_for_function(elements, func):
     return for_every_element(print_result, elements, func)
 
 
@@ -33,9 +33,9 @@ squared_exp = combine_funcs(lambda x: 2**x,
 list_of_elements = [-2, -1, -0.5, 0, 0.5, 1, 2]
 
 print('two_x_exp')
-print_results_for_function(two_x_exp, list_of_elements)
+print_results_for_function(list_of_elements, two_x_exp)
 print()
 
 print('squared_exp')
-print_results_for_function(squared_exp, list_of_elements)
+print_results_for_function(list_of_elements, squared_exp)
 print()
