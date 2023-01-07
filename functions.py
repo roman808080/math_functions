@@ -9,7 +9,7 @@ def combine_funcs(func_1, func_2):
     return inner
 
 
-def for_every_element(func, elements, *args, **kargs):
+def for_every_element(elements, func, *args, **kargs):
     results = []
     for element in elements:
         results.append(func(element, *args, **kargs))
@@ -20,7 +20,7 @@ def print_result(x, func):
 
 
 def print_results_for_function(elements, func):
-    return for_every_element(print_result, elements, func)
+    return for_every_element(elements, print_result, func)
 
 
 two_x_exp = combine_funcs(lambda x: 2*x,
